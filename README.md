@@ -1,24 +1,11 @@
-# Getting Started with [Fastify-CLI](https://www.npmjs.com/package/fastify-cli)
+# Example to demonstrate an issue in fastify-autoload 5.8.2
 
-This project was bootstrapped with Fastify-CLI.
+Autoload from 5.8.0 -> 5.8.2 produces an error in the current repository by flagging a route as being already
+registered and therefore duplicate.
 
-## Available Scripts
+To reproduce:
+* npm install
+* npm run dev
+=> this will produce an error `FastifyError [Error]: Method 'GET' already declared for route '/backend'`
 
-In the project directory, you can run:
-
-### `npm run dev`
-
-To start the app in dev mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-### `npm start`
-
-For production mode
-
-### `npm run test`
-
-Run the test cases.
-
-## Learn More
-
-To learn Fastify, check out the [Fastify documentation](https://fastify.dev/docs/latest/).
+change autoload to 5.8.0 and run the steps again and the error will disappear
